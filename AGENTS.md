@@ -2,21 +2,29 @@
 
 ## Start here
 
-1. Read [`METHOD.md`](METHOD.md).
-2. Treat `METHOD.md` as the only normative engineering-method authority in this repository.
-3. Use `README.md` as the repository map and for the standard Fable review workflow.
+1. Read [`METHOD.md`](METHOD.md) for engineering reasoning.
+2. Read [`REPOSITORY-STANDARD.md`](REPOSITORY-STANDARD.md) for the cross-repository operating envelope when repository structure/workflow is in scope.
+3. Use [`README.md`](README.md) as the authority map and canonical Fable review workflow.
+
+## Authority rules
+
+- `METHOD.md` is the only normative organizational engineering-method authority.
+- `REPOSITORY-STANDARD.md` is the only normative organizational repository-operating-standard authority.
+- Product architecture, repository status, stage names, technology, verification commands, and repo-specific safety rails remain local to consuming repositories.
+- Local copies/summaries are derived aids only unless explicitly ratified as a different authority.
 
 ## Editing rule
 
-- A change to `METHOD.md` is a **material decision** and requires explicit operator ratification.
-- Apply the current method to any proposed amendment.
-- Keep the normative method LLM-first: maximum decision signal per token; no duplicated rule, tutorial prose, repo-specific facts, or ceremony without demonstrated value.
-- Do not create a second normative summary or local reinterpretation of `METHOD.md`.
+A change to either organizational authority is a material cross-repository decision. Apply the current Method, inspect affected consumers, and require explicit operator ratification.
+
+Keep both documents LLM-first: maximum decision signal per token; no duplicated rule, tutorial prose, repository-specific fact, or ceremony without demonstrated value.
 
 ## Repository boundary
 
-This repository owns the organizational engineering method and the small cross-repository Fable review convention documented in `README.md`.
+This repository owns only:
 
-Product architecture, repository status, verification commands and repo-specific safety rails remain owned by consuming repositories.
+- the organizational Engineering Method;
+- the organizational Repository Standard;
+- the small canonical Fable review convention in `README.md`.
 
-Do not add sync machinery, CI, distribution tooling, prompt libraries or governance frameworks until a real failure class or consumer justifies them.
+Do not add sync machinery, CI/distribution frameworks, prompt libraries, templates, or governance tooling until a demonstrated cross-repository failure class and real consumer justify them.
