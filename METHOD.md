@@ -24,6 +24,14 @@ Current organizational specialist authorities may include the Repository Standar
 
 Reopen this method only when Evidence shows a core rule is systematically misclassifying work, creating ceremony without decision-quality gain, forcing repository bindings to violate the method, or failing for a materially new actor/work class.
 
+### Consumer-to-method feedback
+
+Real work may expose a reusable safeguard before the organizational Method names it. A consumer MAY introduce a bounded local safeguard to protect current work, but a safeguard that protects a cross-repository method property MUST be surfaced as a **METHOD FINDING** to the canonical methodology instead of becoming a permanent silent local fork.
+
+Central promotion review asks whether the failure class is real/generalizable, whether current methods already cover it, what credible alternatives exist, and whether promotion reduces total risk/complexity without ceremony inflation. One material real consumer may be sufficient when the failure class is clearly cross-repository; repeated independent consumers strengthen Evidence but are not a prerequisite.
+
+Until central disposition, the safeguard remains local specialization. If promoted, update canonical methodology first; consuming repositories then upgrade their pinned methodology deliberately and boundedly rebaseline only affected work.
+
 ## 2. Materiality and proportionality
 
 A decision is **material** when it touches—creates, changes, removes, or deliberately leaves unprotected—any of:
