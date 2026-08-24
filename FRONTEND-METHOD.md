@@ -1,7 +1,6 @@
 # DevelopmentConexus Frontend Product Experience Method
 
 **Version:** 1.0.0  
-**Status:** CANDIDATE FOR ORGANIZATIONAL RATIFICATION  
 **Scope:** reusable frontend/product-experience planning across DevelopmentConexus repositories  
 **Lineage:** consolidates the reusable local Frontend Product Experience Planning Method through the operator-ratified MetalDocs v2.3 generation
 
