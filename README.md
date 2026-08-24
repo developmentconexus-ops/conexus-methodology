@@ -4,9 +4,9 @@ Canonical home of the DevelopmentConexus cross-repository engineering methods.
 
 ## Current suite status
 
-**PR #2 candidate / NOT YET ORGANIZATIONAL AUTHORITY.**
+**PR #2 OPERATOR-RATIFIED / NOT YET INTEGRATED / NOT YET ORGANIZATIONAL AUTHORITY.**
 
-`main` remains the accepted organizational authority until this candidate is independently reviewed, operator-ratified, and integrated.
+Independent adversarial review R1–R3 is converged and the operator ratified this candidate on 2026-08-24. `main` remains the accepted organizational authority until this candidate is integrated.
 
 ## Start with the router
 
@@ -56,7 +56,7 @@ It does not manufacture `docs/index.md` or `docs/roadmap.md` solely for symmetry
 
 [`ADVERSARIAL-REVIEW-METHOD.md`](ADVERSARIAL-REVIEW-METHOD.md) owns the review transport, branch/worktree protocol, minimal operator handoff, `ai-dialog.md`, Lead adjudication, round rules, and closure.
 
-Current PR #2 is dogfooding that protocol with ChatGPT as Lead and Claude Code as Challenger. Do not copy the review workflow into other routing surfaces.
+Current PR #2 dogfooded that protocol with ChatGPT as Lead and Claude Code as Challenger through converged R1–R3. Do not copy the review workflow into other routing surfaces.
 
 ## Consumption contract
 
