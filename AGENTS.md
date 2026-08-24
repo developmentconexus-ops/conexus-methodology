@@ -1,30 +1,23 @@
-# Agent Instructions
+# Conexus Methodology — Agent Bootstrap
 
-## Start here
+Before editing, revalidate repository, branch/HEAD and any active methodology PR. Current repository authority beats chat or an old handoff.
 
-1. Read [`METHOD.md`](METHOD.md) for engineering reasoning.
-2. Read [`REPOSITORY-STANDARD.md`](REPOSITORY-STANDARD.md) for the cross-repository operating envelope when repository structure/workflow is in scope.
-3. Use [`README.md`](README.md) as the authority map and canonical Fable review workflow.
+Read:
 
-## Authority rules
+```text
+AGENTS.md
+→ ROUTER.md
+→ only the Method(s) selected for the task
+```
 
-- `METHOD.md` is the only normative organizational engineering-method authority.
-- `REPOSITORY-STANDARD.md` is the only normative organizational repository-operating-standard authority.
-- Product architecture, repository status, stage names, technology, verification commands, and repo-specific safety rails remain local to consuming repositories.
-- Local copies/summaries are derived aids only unless explicitly ratified as a different authority.
+Do not load the whole suite by default.
+
+`README.md` owns this repository's current suite-level status and authority map. `ROUTER.md` owns method selection. Individual Method/Standard files own their named semantics and versions.
 
 ## Editing rule
 
-A change to either organizational authority is a material cross-repository decision. Apply the current Method, inspect affected consumers, and require explicit operator ratification.
+A change to an organizational Method/Standard is material cross-repository work. Apply the currently accepted Method, inspect affected consumers, challenge material candidates independently when required, and require explicit operator ratification before they become organizational authority.
 
-Keep both documents LLM-first: maximum decision signal per token; no duplicated rule, tutorial prose, repository-specific fact, or ceremony without demonstrated value.
+The current review/transport protocol is owned only by `ADVERSARIAL-REVIEW-METHOD.md`.
 
-## Repository boundary
-
-This repository owns only:
-
-- the organizational Engineering Method;
-- the organizational Repository Standard;
-- the small canonical Fable review convention in `README.md`.
-
-Do not add sync machinery, CI/distribution frameworks, prompt libraries, templates, or governance tooling until a demonstrated cross-repository failure class and real consumer justify them.
+Keep this repository small and LLM-first. Do not add Product-specific decisions, stage roadmaps, prompt/template libraries, generic agent frameworks, sync bots or CI/distribution machinery without a demonstrated failure class and real consumer.

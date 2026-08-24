@@ -1,121 +1,112 @@
 # DevelopmentConexus Repository Standard
 
-**Version:** 1.0.0  
-**Status:** OPERATOR-RATIFIED  
-**Ratified:** 2026-08-20  
-**Scope:** active DevelopmentConexus product and platform repositories
+**Version:** 1.1.0  
+**Scope:** active DevelopmentConexus Product and platform repositories
 
 ## 1. Purpose
 
-This standard defines **how a DevelopmentConexus repository is organized and operated** so humans and agents can enter any project with the same navigation, authority, Git, review, and context-management model.
+Define the common repository operating envelope so a fresh human/agent can recover current state, select minimum context, work safely, review independently when required, and continue without conversation archaeology.
 
-It does not define Product semantics, architecture, technology, implementation language, stage names, or domain-specific verification. Those remain local to each repository.
+This standard does not define Product semantics, architecture, technology, stage names, or repository-specific verification commands.
 
-`METHOD.md` governs **how engineering decisions are reasoned about**. This document governs **how repository knowledge and delivery are structured**. Neither may silently replace the other.
+Method selection is owned by `ROUTER.md`; engineering reasoning by `METHOD.md`; specialist behavior by the applicable specialist method. This document owns repository operation/continuity only.
 
-The target property is:
+## 2. Required envelope
 
-> A fresh actor can find current status, the exact owning authority, and the smallest task-specific context without reconstructing conversation history, reading the repository recursively, or guessing which document is current.
+Every conforming Product/platform repository MUST provide:
 
-## 2. Hard standard versus repository freedom
-
-### Hard standard
-
-Every conforming repository MUST provide:
-
-- a landing-only `README.md`;
-- a bootstrap-only `AGENTS.md`;
-- `docs/index.md` as the canonical task/intention router;
-- `docs/roadmap.md` as the sole mutable stage/status/next-action authority;
-- semantic durable documentation paths under `docs/`;
-- one current authority per meaning;
+- landing-only `README.md`;
+- compact bootstrap-only `AGENTS.md`;
+- `docs/index.md` as task/intention router;
+- `docs/roadmap.md` as sole mutable current stage/status/next-action authority;
+- one current authority per material meaning;
+- exact pinned accepted `conexus-methodology` commit discoverable from bootstrap;
+- fresh-session recovery independent from chat history;
+- one coherent acceptance increment per PR by default;
 - branch-only temporary work that cannot enter `main`;
-- one coherent gate/stage per PR by default;
-- squash merge as the normal integration method;
-- protected `main` with no force-push or deletion;
+- squash merge as normal integration;
+- protected `main` with PR-based changes and no force-push/deletion;
 - at least one required aggregate verification check;
-- task-selective reading with a default pack of at most five files;
-- a mechanically enforced bootstrap budget of at most 20 KiB for `AGENTS.md + docs/index.md + docs/roadmap.md`;
-- Git/closed PRs as history, subject to the reachability law in §10.
+- repository-local task authority pack of at most five files by default;
+- `AGENTS.md + docs/index.md + docs/roadmap.md <= 20 KiB`, enforced by that repository's aggregate verification.
 
-### Repository freedom
+Each repository still owns Product/architecture content, stage/block names, implementation stack/tree, exact verification commands, optional documentation surfaces, domain safety rails, and the semantic size of an acceptance increment.
 
-Each repository owns:
+Standardize the operating envelope, not the Product.
 
-- Product and architecture content;
-- stage/gate names such as `D5`, `3M`, or `T8-E`;
-- implementation languages and frameworks;
-- exact directory trees for source/runtime code;
-- exact verification jobs and commands;
-- whether `reference/`, `research/`, `evidence/`, `qualification/`, or `diagrams/` are needed;
-- domain-specific safety rails and stop conditions.
+## 3. Fresh-session recovery and selective context
 
-Standardization applies to the **operating envelope**, not the Product.
+### 3.1 Revalidate state first
 
-## 3. Required fresh-actor route
+Before relying on remembered/chat state, establish as applicable:
 
-The default route is:
+```text
+repository identity / remote
+current checkout branch + HEAD
+remote main HEAD
+worktree cleanliness / unowned state
+relevant active candidate PR + base/head
+aggregate CI/check status
+```
+
+Do not assume an old handoff SHA or previous conversation is current.
+
+### 3.2 Default Product/platform route
 
 ```text
 AGENTS.md
 → docs/index.md
 → docs/roadmap.md
-→ 1–2 task-specific owning documents
+→ pinned methodology ROUTER.md
+→ selected method profile
+→ 1–2 task-owning repository documents
 ```
 
-Normal work MUST fit in five files or fewer. Exceeding that pack requires a named material reason.
+The five-file budget counts the **repository-local task authority pack**. Selected methodology files are a separate profile selected by `ROUTER.md`.
 
-Agents MUST NOT recursively read `docs/`, phase history, Git history, raw research, qualification harnesses, or implementation evidence before a concrete task requires them.
+Do not recursively read `docs/`, phase history, Git history, research, Evidence, qualification harnesses, implementation code, or closed review dialogue before a current claim requires them.
 
-`docs/index.md` MUST include a task/intention table that names the smallest starting document and what must not be read by default.
+`docs/index.md` should route by task/intention and name the smallest starting authority pack.
+
+### 3.3 Continue without chat
+
+For an active unmerged candidate:
+
+- candidate-branch `docs/roadmap.md` owns candidate stage/status/next action;
+- `main` owns integrated status and may legitimately lag;
+- PR descriptions help locate candidate/proof identity but never replace the roadmap;
+- a resumable material checkpoint must exist in lawful repository state, not only chat or uncommitted scratchpad.
+
+Chat/handoffs are routing convenience only.
+
+### 3.4 Optional method selector
+
+A roadmap may state a compact current method profile only when it materially reduces ambiguity. The profile is routing, never duplicated method text.
 
 ## 4. Root files
 
 ### `README.md`
 
-`README.md` is a public/human landing page only.
-
-It MAY contain:
-
-- one-paragraph Product/repository description;
-- links to `AGENTS.md` and `docs/index.md`;
-- stable public URLs;
-- stable setup or verification entrypoints when useful.
-
-It MUST NOT own:
-
-- mutable stage/status;
-- exact next action;
-- a parallel roadmap;
-- architecture authority;
-- active review state.
+Landing page only. It may identify the Product and stable setup/verification entrypoints. It MUST NOT own mutable current status, exact next action, architecture authority, or active review state.
 
 ### `AGENTS.md`
 
-`AGENTS.md` is the repository bootstrap/router.
+Bootstrap/router only. Keep it compact and include:
 
-It MUST remain compact and contain only:
+- fresh-session state revalidation;
+- repository authority route;
+- exact methodology pin + route to `ROUTER.md`;
+- local hard stops/safety rails;
+- local verification commands;
+- materially repository-specific Git/publication rules.
 
-- the fresh-actor route;
-- the repository-local authority model;
-- references to the canonical organizational Method and Repository Standard;
-- repository-specific hard stops/safety rails;
-- local verification command(s);
-- Git/publication rules that are materially repository-specific.
+It MUST NOT duplicate Methods, roadmap, Product/architecture prose, full review protocol, long research guidance, or session history.
 
-It MUST NOT duplicate:
+A tool-specific `CLAUDE.md`, `GEMINI.md`, etc. may exist only for a real automatic consumer and MUST disclaim independent Product/status/method authority. For Claude Code, prefer a tiny bridge to local `AGENTS.md`; do not import the whole method suite into automatic context.
 
-- the full engineering Method;
-- the roadmap;
-- Product/architecture prose;
-- the full Fable workflow;
-- long research/tool guidance.
+## 5. Documentation model
 
-A local `CLAUDE.md`, `GEMINI.md`, or similar tool bridge MAY exist only when the tool consumes it automatically or a real local consumer requires it. It MUST disclaim independent Product/status authority.
-
-## 5. Canonical documentation structure
-
-Create only directories with a real consumer. The reserved semantic model is:
+Create only paths with a real consumer. Reserved semantic model:
 
 ```text
 docs/
@@ -133,267 +124,225 @@ docs/
 └── work/
 ```
 
-Responsibilities:
-
 | Surface | Responsibility |
-| --- | --- |
-| `docs/index.md` | Task/intention routing only |
-| `docs/roadmap.md` | Sole mutable stage, gate, implementation status, next action |
-| `docs/product/` | What the Product is: scope, actors, journeys, invariants |
-| `docs/architecture/` | Current structural architecture and semantic ownership |
-| `docs/decisions/` | Current decisions, dispositions, consequences, reopen triggers |
-| `docs/phases/` | Durable closure/result summaries for completed or active named stages when useful |
-| `docs/development/` | Repository-local engineering, documentation, Git, CI, and proof rules |
-| `docs/reference/` | Detailed current technical reference; not default-read |
-| `docs/research/` | Comparative/external study; never implicit Product authority |
-| `docs/evidence/` | Durable proof summaries/provenance; never Product authority |
-| `docs/diagrams/` | Source-first diagrams whose semantic owner is named |
-| `docs/work/` | Temporary non-authoritative branch-only material |
+|---|---|
+| `docs/index.md` | task/intention routing only |
+| `docs/roadmap.md` | sole mutable current stage/status/next action |
+| `docs/product/` | Product scope, actors, journeys, invariants |
+| `docs/architecture/` | current structural architecture/ownership |
+| `docs/decisions/` | current decisions/dispositions/reopen triggers |
+| `docs/phases/` | durable closure/result summaries when useful |
+| `docs/development/` | repository-local engineering/Git/CI/proof specialization |
+| `docs/reference/` | detailed current reference; not default-read |
+| `docs/research/` | comparative study; never implicit authority |
+| `docs/evidence/` | durable proof/provenance; never Product authority |
+| `docs/diagrams/` | source-first diagrams with named owner |
+| `docs/work/` | temporary non-authoritative branch work |
 
-Executable qualification/proof harnesses MAY live outside `docs/`, for example under `qualification/`, and MUST remain outside the default read pack.
+Executable proof/qualification may live outside `docs/` and remains opt-in context.
 
-## 6. Naming and metadata
+Durable names use semantic lowercase kebab-case. Avoid session/reviewer/date/final/old naming unless genuinely part of subject identity.
 
-Durable paths use lowercase kebab-case semantic names.
+## 6. Roadmap and decision authority
 
-Good:
-
-```text
-product/contract.md
-architecture/persistence.md
-decisions/index.md
-phases/3l-technology-qualification.md
-```
-
-Durable filenames SHOULD NOT encode dates, sessions, reviewers, `final`, `candidate`, `handoff`, `dialogue`, `round`, `adjudication`, `amendment`, `old`, `legacy`, or `historical` unless that token is genuinely part of the subject identity.
-
-A repository MAY use minimal frontmatter when it materially improves machine navigation, for example:
-
-```yaml
----
-id: persistence-architecture
-kind: authority
-owner: architecture
-summary: Owns current persistence architecture.
----
-```
-
-Do not add metadata merely for uniformity when filenames/indexes already provide sufficient routing.
-
-## 7. Status and roadmap law
-
-`docs/roadmap.md` is the **only mutable current-program status authority**.
-
-It MUST make it possible to determine:
-
-- current stage/gate;
-- completed stages that matter to progression;
-- next stage or exact next action;
-- whether implementation is allowed or blocked;
-- entry/exit conditions or reopen triggers where material.
-
-Other durable documents MAY contain frozen historical closure snapshots, but MUST label them as snapshots and route current status back to `docs/roadmap.md`.
-
-Indexes, README, AGENTS, Product, Architecture, PR descriptions, and phase summaries MUST NOT become parallel mutable status authorities.
-
-## 8. Decision register law
-
-`docs/decisions/index.md` or an equivalent clearly named register MUST allow a fresh actor to discover current decision disposition without reconstructing review chronology.
-
-For material current decisions, preserve as applicable:
+`docs/roadmap.md` is the only mutable current-program status authority. It must make discoverable:
 
 ```text
-ID
-subject / decision
-current disposition
-rationale
-consequences
-owning authority
-supersedes / refines
-Evidence/reference
-reopen trigger
+current stage/gate/block
+integrated increments relevant to progression
+exact next action
+implementation allowed/blocked
+active blocking Finding/prerequisite when material
 ```
 
-Controlled dispositions SHOULD use a small stable vocabulary such as:
+A stage MAY remain OPEN across several integrated acceptance increments. Merge does not imply stage closure.
+
+Other documents may contain frozen closure snapshots but route current status back to the roadmap.
+
+A decision register (`docs/decisions/index.md` or equivalent) must make current material decisions/dispositions discoverable without reconstructing review chronology. Preserve as applicable: ID/subject, disposition, rationale/consequences, owner, supersedes/refines, Evidence, reopen trigger.
+
+## 7. Temporary work
+
+Temporary work is non-authoritative and branch-only. Use only files actually needed, for example:
 
 ```text
-CURRENT
-PRESERVE
-REFINED
-REOPEN
-DEFERRED
-SUPERSEDED
-REJECTED
-```
-
-A pointer table alone does not replace a decision register when forward obligations such as `REOPEN`, `DEFERRED`, or `PRESERVE` would be lost.
-
-## 9. Temporary work and independent review
-
-Temporary work is non-authoritative.
-
-A material gate MAY use:
-
-```text
-docs/work/current/index.md
 docs/work/current/proposal.md
 docs/work/current/plan.md
-```
-
-Use only files the gate actually needs. They MUST be absorbed or deleted before merge.
-
-### Fable review isolation
-
-The candidate branch SHOULD remain free of `ai-dialog.md`.
-
-Create a bounded review branch from the exact candidate:
-
-```text
-<stage-branch>
-→ review/<stage>-fable
-```
-
-The review branch adds only:
-
-```text
 docs/work/current/ai-dialog.md
 ```
 
-The review guard MUST be capable of proving:
+Temporary work MUST be absorbed into durable authority or deleted before merge. No permanent session handoff/dialogue/round/archive tree in the live documentation surface.
 
-```text
-review branch - candidate branch
-= docs/work/current/ai-dialog.md only
-```
+## 8. Independent adversarial review
 
-Fable writes review input there. The Lead/Codex applies accepted corrections to the candidate branch. The review branch is then closed/deleted. `ai-dialog.md` never enters the merge candidate or `main`.
+`ADVERSARIAL-REVIEW-METHOD.md` owns candidate identity, branch/worktree naming, `ai-dialog.md`, transport, handoff, dialogue, adjudication, round and closure behavior. This standard does not restate those rules.
 
-Follow the canonical **Standard Fable review workflow** in `README.md` of this methodology repository. Reviewer output is Evidence, never authority. A second review round occurs only when a real material contradiction survives.
+A Product/platform repository using that review profile MUST ensure through its aggregate verification that:
 
-## 10. Git is the archive — reachability law
+- review transport cannot enter candidate/main;
+- the review branch is isolated from the exact candidate as required by the review method;
+- review output remains Evidence, not Product/status authority.
 
-`Git history is the archive` is true only when the history that matters remains reachable.
+## 9. Git is the archive — reachability law
 
-### Content previously merged to `main`
+Git history is sufficient archive only while required history remains reachable.
 
-If superseded content was previously reachable from `main`, it may be removed from the live tree after surviving current semantics are consolidated. Normal Git history is sufficient provenance.
+For material content previously merged to `main`, normal Git history is generally sufficient after surviving current semantics are consolidated.
 
-### Important content only on an unmerged branch/PR
+Before deleting the last branch/ref for important unmerged work:
 
-Before deleting its last branch/reference:
+1. consolidate still-current semantic obligations into durable authority;
+2. determine whether byte-level provenance is still required;
+3. if required, preserve an explicit durable ref/tag to exact lineage and record where to find it;
+4. only then delete the branch.
 
-1. consolidate every still-current semantic obligation into current durable authority;
-2. identify whether byte-level provenance is still required by a current authority, Evidence claim, or future requalification;
-3. if byte-level provenance is still required, create a durable annotated tag or another explicit durable ref to the exact head/blob lineage;
-4. record the durable ref where a future actor can find it;
-5. only then delete the branch.
+Do not create working-tree archive directories or tags for ordinary superseded material with no current consumer.
 
-Do not create archive directories in the working tree. Do not create tags for ordinary superseded work with no remaining provenance consumer.
+## 10. Acceptance increments and PR lifecycle
 
-## 11. Branch and PR lifecycle
+### 10.1 Acceptance increment
 
-Default lifecycle:
+An **acceptance increment** is the smallest semantically coherent change that can be independently accepted/rejected while leaving the repository valid and reconstructable.
+
+It is not defined by LOC, commit count, file count, or roadmap-stage boundary.
+
+Typical increments include:
+
+- one frontend material block through operator LOCK + trace closure;
+- one upstream Product/backend correction exposed by a downstream Finding;
+- one bounded architecture/contract decision package;
+- one implementation vertical slice with its proof;
+- one stage closeout after substantive increments are already integrated.
+
+### 10.2 Default lifecycle
 
 ```text
 main
-→ one branch / one Draft PR for one coherent stage or gate
-→ analysis + execution
-→ consolidated candidate
-→ final independent review when required
+→ branch + Draft PR for one acceptance increment
+→ analysis/execution
+→ candidate
+→ independent review when triggered
 → bounded corrections
 → verification
-→ explicit merge authorization when repository governance requires it
+→ explicit merge authorization when required
 → squash merge
-→ automatic head-branch deletion
-→ next stage starts from updated main
+→ delete head branch
+→ revalidate main
+→ next dependent increment from updated main
 ```
 
-Rules:
+A stage may remain OPEN after any merge.
 
-- do not stack a later stage on an unmerged earlier stage by default;
-- do not commit directly to `main`;
-- do not force-push or rewrite shared history;
-- declare both what changes and what deliberately does not change;
+### 10.3 Split law
+
+Split when parts can be independently accepted/rejected and especially when they have different semantic owners, separate operator decisions, a separable downstream Finding/upstream correction, materially different proof/review needs, or one combined surface becomes hard to reason about.
+
+Do not split mechanically by file, P-step, endpoint, or arbitrary LOC.
+
+Diff size is a review-risk signal, not a hard threshold. A materially large PR should state why it remains one coherent acceptance increment.
+
+Dependent later increments do not stack on unmerged earlier increments by default. Independent parallel work requires explicit boundaries and must not treat unmerged candidates as integrated authority.
+
+### 10.4 General Git rules
+
+- no direct commits to `main`;
+- no force-push/shared-history rewrite;
+- declare what changes and deliberately does not;
 - dependency/lockfile changes require explicit scope;
-- temporary plans, candidates, review channels and handoffs do not survive merge;
-- merge/rebase methods other than squash SHOULD be disabled for normal product repositories unless a repository has a proven history-preservation requirement;
-- `main` MUST be protected from force-push and deletion and require PR-based changes.
+- temporary work/review transport does not survive merge;
+- squash is normal integration;
+- `main` must be protected from force-push/deletion and changed through PRs.
 
-## 12. Verification contract
+## 11. Verification contract
 
-Each repository owns its tools, but its verification MUST cover the relevant organizational properties below.
+Each repository owns its implementation, but its aggregate verification MUST prove the applicable organizational properties below. The standard does not claim one central verification script.
 
-### Bootstrap and authority
+### Bootstrap/context
 
-- `AGENTS.md + docs/index.md + docs/roadmap.md <= 20 KiB`;
-- `docs/roadmap.md` is the sole mutable status/next-action authority;
-- `README.md` is landing-only;
-- the default task pack is at most five files;
-- durable documents are reachable from `docs/index.md` or a routed child index;
-- relative links from current routers resolve;
-- no durable authority depends on `docs/work/**`.
+- bootstrap trio `<= 20 KiB`;
+- roadmap is sole mutable current status/next-action authority;
+- README is landing-only;
+- repository-local task authority pack defaults to `<= 5` files;
+- AGENTS contains fresh-session revalidation + exact methodology pin/route;
+- current routers/relative links resolve;
+- durable authority does not depend on `docs/work/**`.
 
-### Temporary/bloat controls
+### Temporary/review hygiene
 
-Merge candidates and `main` MUST contain no:
+Merge candidates/main contain no:
 
-- `docs/work/**`;
-- `AI-DIALOG`/`ai-dialog` review artifact;
-- `docs/superpowers/`;
-- permanent session handoff/dialogue/round trees;
-- active `old/`, archive, tombstone, or duplicate-roadmap tree used as a second current surface.
+```text
+docs/work/**
+ai-dialog / AI-DIALOG
+docs/superpowers/
+permanent handoff/dialogue/round trees
+active old/archive/duplicate-roadmap trees
+```
 
-### Decision and history controls
-
-- decision dispositions are valid and current;
-- unique unmerged provenance is not deleted while still required;
-- a retired check/control requires current evidence that its subject population is zero or replacement coverage is complete.
+When adversarial review branches are used, the repository's aggregate verification proves the isolation property required by the review method.
 
 ### Guard quality
 
-- a material guard must be shown capable of firing through a deterministic negative control or equivalent falsifier;
-- do not accept a presence-only control for a behavioral property;
-- compare the intended base to candidate for diff checks; a clean checkout `git diff --check` with no range is not proof of the PR diff;
-- when implementation is blocked and the repository is intentionally architecture-only, prefer an explicit **allowlist of permitted top-level surfaces** over a denylist of old implementation names.
+- material guards demonstrate a deterministic negative path/falsifier;
+- presence-only control does not prove behavioral behavior;
+- PR diff proof compares intended base...candidate, not an empty checkout diff;
+- retired controls require attributable zero subject population or proved replacement coverage.
 
-### Required aggregate check
+### Aggregate check
 
-Every repository MUST expose at least one required aggregate status check protecting `main`.
+Every conforming Product/platform repository exposes at least one required aggregate check protecting `main`. Existing functioning protected names may remain until deliberately migrated.
 
-New or fully realigned repositories SHOULD name the aggregate `required`. Existing repositories MAY retain a functioning protected check name until its GitHub branch-protection configuration is deliberately migrated; do not break a working protection rule solely for naming uniformity.
+A control counts as proven only in a repository where its implementation can be shown to fire; this standard defines required properties, not pre-executed proof for every consumer.
 
-## 13. Research, Evidence, framework skills, and external docs
+## 12. Research/Evidence/external docs
 
-Research and Evidence support decisions; they do not create Product authority.
+Research and Evidence support decisions; they do not create Product authority. Use external/current docs, framework source, Context7, live probes and deep Evidence only when materially relevant. Exact selected source/configuration decides version-sensitive claims.
 
-- `research/` may remain deep when it has a named current/future consumer, but is never default-read;
-- `evidence/` and `qualification/` preserve proof boundaries and exact provenance;
-- vendored framework skills are execution aids, not Product architecture;
-- current external documentation, Context7, framework source, and live probes are used only when materially relevant;
-- exact pinned source/configuration and bounded Evidence decide version-specific qualification claims.
+Reusable production realization follows pinned `REALIZATION-METHOD.md`; reusable frontend planning follows pinned `FRONTEND-METHOD.md` rather than silently forked local copies.
+
+## 13. Methodology consumption
+
+Consumers reference:
+
+```text
+developmentconexus-ops/conexus-methodology
++ exact accepted commit
+```
+
+The pin is discoverable from bootstrap. Never consume normative methodology as automatically moving `main`; that would change rules underneath open Product work.
+
+Default: canonical reference. If a proven tool/local/offline consumer needs physical bytes, a read-only pinned Git submodule or generated projection may be used as a delivery/cache mechanism provided:
+
+```text
+canonical repo + exact commit recorded
+auto-follow main disabled
+local edits prohibited
+explicit non-independent authority
+upgrade only through explicit PR moving pin
+```
+
+Do not introduce organization-wide sync/bot machinery until repeated real consumer cost proves the need. If later justified, automation opens methodology-upgrade PRs rather than silently mutating consumers.
 
 ## 14. Repository-local specialization
 
-A repository SHOULD keep its local specialization in `docs/development/` and reference this standard instead of copying it.
+Keep local specialization in `docs/development/` and reference organizational Methods instead of copying/redefining them.
 
-Local rules may strengthen this standard for real Product/security/tooling constraints. They MUST NOT silently weaken it.
+A local rule may strengthen the standard for a real Product/security/tooling constraint; it may not silently weaken it.
 
-A justified deviation MUST state:
+A deviation records:
 
 ```text
-standard rule
+organizational rule
 local deviation
 real consumer/failure class
-why the default is insufficient
+why default is insufficient
 reopen/removal trigger
 ```
 
-Do not create a synchronization framework to distribute this document. Repositories cite the canonical version and migrate deliberately when a material amendment is ratified.
-
 ## 15. Conformance success test
 
-A conforming repository passes this fresh-actor test:
+A conforming Product/platform repository passes:
 
-> Starting from `AGENTS.md`, a new human or agent can find the sole current roadmap, choose the smallest task-specific authority pack, distinguish authority from research/Evidence/history, understand the PR/review/verification boundary, and begin work without conversation archaeology or recursive repository reading.
+> From a fresh session, an agent can revalidate repository/PR/CI state, follow `AGENTS → index → roadmap → methodology router`, load only the required Method profile and task owners, distinguish authority from Evidence/history/review transport, and continue active work without chat archaeology or recursive repository reading.
 
-If achieving that requires reading several status dashboards, all phase documents, Git history, review dialogues, or a tool-specific plan tree, the repository is not conforming even if every individual document is correct.
+If that requires several dashboards, all Methods, whole-repo reading, permanent handoffs/dialogues, or guessing which PR is current, the repository is not conforming.

@@ -1,59 +1,73 @@
 # Conexus Methodology
 
-Canonical home of the DevelopmentConexus cross-repository engineering authorities.
+Canonical home of the DevelopmentConexus cross-repository engineering methods.
 
-## Authorities
+## Current suite status
 
-- [`METHOD.md`](METHOD.md) — **DevelopmentConexus Engineering Method v1.0.0**. Governs how engineering is reasoned about and decided.
-- [`REPOSITORY-STANDARD.md`](REPOSITORY-STANDARD.md) — **DevelopmentConexus Repository Standard v1.0.0**. Governs the common repository operating envelope: bootstrap, documentation information architecture, status, temporary work, Git/PR lifecycle, review isolation, context control, and minimum verification properties.
+**PR #2 OPERATOR-RATIFIED / NOT YET INTEGRATED / NOT YET ORGANIZATIONAL AUTHORITY.**
 
-Product semantics, product architecture, stage names, technology, runtime topology, exact verification commands, and repository-specific safety rails remain owned by each consuming repository.
+Independent adversarial review R1–R3 is converged and the operator ratified this candidate on 2026-08-24. `main` remains the accepted organizational authority until this candidate is integrated.
 
-Derived summaries, prompt snippets, templates, or local projections MUST cite the canonical authority/version and MUST NOT become independent authorities.
+## Start with the router
 
-## Standard Fable review workflow
+Agents start with [`ROUTER.md`](ROUTER.md) and load only the method profile required by the current task. The router owns context selection; this README does not duplicate that logic.
 
-Use Fable as the independent adversarial challenger for material engineering analysis when the Method or the repository calls for independent review — for example architecture/planning packages, batches of related decisions, rebaseline stages, or other high-impact decisions.
+## Authority map
 
-Standard flow:
+- [`METHOD.md`](METHOD.md) — Engineering Method v1.1.0: Evidence, Root Cause, Global Maximum, authority, proof, Findings, reopen, bounded rebaseline.
+- [`REPOSITORY-STANDARD.md`](REPOSITORY-STANDARD.md) — Repository Standard v1.1.0: fresh-session recovery, documentation authority, acceptance increments, Git/PR lifecycle, context control, methodology consumption.
+- [`FRONTEND-METHOD.md`](FRONTEND-METHOD.md) — Frontend Product Experience Method v1.0.0: needs/flows/IA, functional low-fi HTML, operator LOCK, backend trace, whole-product assembly, readiness.
+- [`REALIZATION-METHOD.md`](REALIZATION-METHOD.md) — Evidence-Grounded Realization Method v1.0.0: technology/dependency research, exact-version admission, `ADOPT | ADAPT | BUILD | DEFER | STOP`, implementation, claim-matched proof.
+- [`ADVERSARIAL-REVIEW-METHOD.md`](ADVERSARIAL-REVIEW-METHOD.md) — Independent Adversarial Review Method v1.0.0: exact-candidate challenge, temporary review transport, Lead adjudication, convergence.
+- [`ROUTER.md`](ROUTER.md) — routing only; no Product/status/engineering decision authority.
 
-```text
-1. Lead performs the analysis independently.
-2. Lead prepares a bounded NON-AUTHORITATIVE candidate/review package.
-3. Lead sends Fable a compact chat handoff with repo/branch/HEAD, target and review focus.
-4. Fable reconstructs repository authority first, applies METHOD.md, challenges the candidate adversarially, researches when materially useful, and looks for a better Global Maximum without adding YAGNI/overengineering.
-5. When repository workflow uses an isolated review branch, Fable writes only the temporary review channel admitted by REPOSITORY-STANDARD.md. Otherwise it materializes only the review artifact explicitly authorized by the task.
-6. Publication authorization applies only to the named review artifact/branch. Local-only work is not completion when publication was authorized.
-7. Lead confronts each material finding technically; reviewer output is evidence, never authority.
-8. Round 2 happens only if a real material contradiction survives.
-9. Lead consolidates the candidate.
-10. Operator ratifies when required. Only then may repository process turn the result into authority/status.
-```
+Each method file owns its own version and document lifecycle. This README owns only the current **suite-level** status of this methodology repository.
 
-Fable must not be used for agreement theater. It should attack root cause, assumptions, boundaries, authority, YAGNI, foreseeable retrofit and credible alternatives. External references, current framework documentation, Context7, source inspection or other research may be used when they materially improve the decision, but references do not create requirements.
+Product semantics, Product architecture, stage/block names, exact technologies, runtime topology, repository status, and local verification remain owned by consuming repositories.
 
-Do not split one coherent decision package into artificial micro-reviews. Review the smallest coherent batch that can be challenged meaningfully.
+## Current operating deployment
 
-A task-specific Fable handoff should stay short because this workflow is already canonical. Normally it only needs the repository/ref, candidate, and specific risks/questions to attack.
-
-## Consumption by repositories
-
-A repository keeps its own `AGENTS.md` as the local bootstrap/router. It cites these organizational authorities rather than copying them.
-
-Example:
+The methods are actor-oriented. Current DevelopmentConexus use is:
 
 ```text
-Engineering reasoning:
-developmentconexus-ops/conexus-methodology/METHOD.md v1.0.0
-
-Repository operating envelope:
-developmentconexus-ops/conexus-methodology/REPOSITORY-STANDARD.md v1.0.0
+Lead        = ChatGPT
+Challenger  = Claude Code
+Operator    = human operator
+Transport   = Git/GitHub
 ```
 
-Repository-local rules may strengthen the standards for a real local constraint; they may not silently redefine or weaken them.
+For the canonical `ai-dialog` profile, both Lead and Challenger require write-capable Git/GitHub access. This requirement was proved during PR #2 Round 1 by a direct ChatGPT Lead write to the remote review branch. If either actor lacks that capability, stop and explicitly choose another transport rather than silently pretending the canonical profile is operational.
+
+This is an operating assignment, not an agent platform. Replacing a model does not require redesigning the methodology.
+
+## Repository-specific bootstrap
+
+This repository deliberately stays smaller than a Product/platform repository:
+
+```text
+AGENTS.md
+→ ROUTER.md
+→ selected method(s)
+```
+
+It does not manufacture `docs/index.md` or `docs/roadmap.md` solely for symmetry. Product/platform repositories follow the bootstrap required by `REPOSITORY-STANDARD.md`.
+
+## Independent review
+
+[`ADVERSARIAL-REVIEW-METHOD.md`](ADVERSARIAL-REVIEW-METHOD.md) owns the review transport, branch/worktree protocol, minimal operator handoff, `ai-dialog.md`, Lead adjudication, round rules, and closure.
+
+Current PR #2 dogfooded that protocol with ChatGPT as Lead and Claude Code as Challenger through converged R1–R3. Do not copy the review workflow into other routing surfaces.
+
+## Consumption contract
+
+A consuming repository keeps its compact local bootstrap and pins the exact accepted Git commit of this methodology repository. Normative auto-follow of methodology `main` is prohibited because it would change rules underneath open Product work.
+
+Default consumption is by canonical reference. If a real tool/local/offline consumer needs the bytes physically present, a pinned read-only Git submodule or generated projection may be used only as a delivery/cache mechanism and upgraded through an explicit pin-move PR.
+
+Do not build sync bots/frameworks merely for convenience. If repeated real cost later justifies automation, it should open explicit methodology-upgrade PRs rather than silently mutating consumers.
 
 ## Change rule
 
-Changing `METHOD.md` or `REPOSITORY-STANDARD.md` is a material cross-repository decision. Apply the current Method, assess downstream consumers, and require explicit operator ratification.
+Changing an organizational Method/Standard is material cross-repository work. Apply the current accepted Method, inspect affected consumers, run independent/fresh challenge when required, and require explicit operator ratification before the candidate becomes authority.
 
-Keep this repository small. Git history is the change record. Do not add sync machinery, CI frameworks, templates, prompt libraries, or duplicated local guidance without a demonstrated failure class or real consumer.
+Keep this repository intentionally small. Git history is the change record. No Product-specific guidance, prompt/template library, generic agent framework, permanent dialogue archive, CI framework, or synchronization platform without a demonstrated failure class and real consumer.
