@@ -231,7 +231,7 @@ REFERENCE EVIDENCE
 ASSUMPTIONS
 ```
 
-Material assumptions remain explicit until validated, rejected, deferred, or escalated as a Finding.
+Material assumptions remain explicit until validated, rejected, deferred, or escalated as a Finding. P8 owns explicit lock-time disposition for any still-OPEN assumption materially depended upon by the block; P14 still requires material OPEN assumptions = 0.
 
 Statuses:
 
@@ -276,18 +276,53 @@ next exact gate
 implementation allowed/blocked
 ```
 
-### Bounded rebaseline
+### Bounded rebaseline and LOCK impact sweep
 
-When accepted upstream authority changes:
+Whenever an accepted upstream authority change is material to frontend planning:
 
 ```text
-new material authority
-→ bounded FP0 rebaseline
-→ update only affected flows / coverage / surfaces / block mapping
-→ preserve valid LOCKED blocks unless new Evidence falsifies them
+changed authority
+→ determine the plausible impact boundary
+→ disposition every LOCKED block inside that boundary
+→ boundedly update only affected foundation/block artifacts
+→ resume from current accepted authority
 ```
 
-Do not restart the entire frontend by default.
+Each plausibly affected LOCKED block receives exactly one disposition:
+
+```text
+UNAFFECTED
+  changed authority does not alter a protected user need, structural invariant,
+  material state/action/context, Screen Contract, or dependency of the block
+
+REVALIDATE
+  protected structure is expected to remain valid but must be explicitly
+  rechecked against the changed authority before dependent progression
+
+REOPEN
+  the LOCK is materially falsified; return only to the smallest required
+  earlier frontend phase or upstream owner
+```
+
+If the impact boundary cannot be bounded safely, sweep all currently LOCKED blocks. Record the result as a compact **LOCK impact matrix** inside the existing rebaseline/decision artifact; this method does not require a new file for the matrix.
+
+Do not restart the entire frontend or invalidate unrelated LOCKs by reflex.
+
+### Small bounded delta
+
+For a genuinely small single-block delta on an otherwise valid foundation:
+
+```text
+reuse valid P0–P5
+→ run P6/P7 only when triggered
+→ render/operate the affected P8 block
+→ run P9 only for changed material contracts
+→ run the LOCK impact sweep only across plausibly affected LOCKs
+→ run P11 only when cross-block integration is implicated
+→ run affected proof/review
+```
+
+Do not repeat unrelated Product-wide discovery for ceremony. A change is **not** small merely because its diff is small; changes to Product meaning, authority, IA, cross-block state, or semantic ownership follow the normal bounded-rebaseline laws.
 
 ## 6. P0 — Recover accepted authority
 
@@ -319,6 +354,10 @@ so that <outcome>.
 ```
 
 Capture frequency/urgency, decision information, friction, and handoffs. Goals must remain independent from proposed components/pages.
+
+Accepted Product/domain authority may seed candidate human jobs, but authority-derived jobs are planning hypotheses about human operation until supported by proportionate Evidence such as operator/domain experience, real workflow/task traces, support/process evidence, observed user evidence, or relevant reference/domain evidence. Unsupported frequency, urgency, terminology, device/environment, and workflow assumptions remain explicit assumptions.
+
+Formal user research is not a prerequisite for every frontend program; use the strongest Evidence proportional to the uncertainty and materiality.
 
 ## 8. P2 — End-to-end flows
 
@@ -442,6 +481,45 @@ A future unopened block may terminate at an explicit boundary; do not secretly d
 
 P8 does not freeze final palette, typography, spacing, tokens, iconography, component architecture, or production animation.
 
+### Lock-time assumption disposition
+
+Before a material P8 LOCK, every still-OPEN assumption that the block's structure materially depends upon records:
+
+```text
+assumption ID
+structural dependency
+risk if false
+operator disposition
+```
+
+Disposition is exactly one of:
+
+```text
+ACCEPT_FOR_LOCK_WITH_LATER_PROBE
+  operator explicitly accepts the known assumption debt for this LOCK
+
+BLOCK_LOCK
+  uncertainty is too material; LOCK cannot occur yet
+
+NOT_MATERIAL_TO_STRUCTURE
+  assumption may remain open but does not support the block's protected structure
+```
+
+Only the operator may select `ACCEPT_FOR_LOCK_WITH_LATER_PROBE`. Do not enumerate unrelated assumptions merely to satisfy a template. P14 still requires material OPEN assumptions = 0.
+
+### Operator walkthrough evidence
+
+For a material LOCK, keep the walkthrough record falsifiable but small:
+
+```text
+OPERATED
+actual task attempted
+material issues found
+final disposition: LOCK | REVISE | UPSTREAM FINDING
+```
+
+When relevant, probe whether current Organization/context was understandable, consequential-action expectations were clear, unknown/empty/unavailable/stale/denied states were intelligible, architecture gaps or backend-shaped UI leaked into the experience, and responsive behavior preserved meaning. Do not turn these prompts into a mandatory questionnaire for trivial blocks.
+
 Exit:
 
 ```text
@@ -450,6 +528,8 @@ material local interactions work
 important states are inspectable
 responsive/accessibility structure is plausible
 no blocking Finding remains
+materially depended-upon OPEN assumptions have lock-time disposition
+operator walkthrough evidence exists
 operator explicitly LOCKS
 ```
 
@@ -489,7 +569,23 @@ After each block LOCK, compare its protected behavior with prior LOCKED blocks a
 
 ## 17. P11 — Assembled interactive low-fidelity product
 
-Assemble already-LOCKED block prototypes and prove cross-block navigation, complete journeys, deep links, shared shell/overlay behavior, negative/recovery flows, and responsive behavior.
+P11 creates a **new assembled prototype artifact** from already-LOCKED blocks. Canonical P8 LOCK artifacts remain immutable review Evidence; P11 does not rewrite them. P11 assembly code remains disposable prototype Evidence and never becomes production/component architecture authority.
+
+Prove cross-block navigation, complete journeys, deep links, shared shell/overlay behavior, negative/recovery flows, and responsive behavior.
+
+Every retained LOCKED block receives an assembled-fidelity check. The assembled artifact must preserve the block's material locked invariants, including as applicable:
+
+```text
+shell / region relationship
+material states
+action availability and material ordering
+context and identity meaning
+responsive transformations
+accessibility interaction laws
+important negative controls
+```
+
+Where an executable structural verifier already exists, reuse the same invariant against P11. Do not build a new verification framework solely for ceremony. Record `PASS FIDELITY` or `REOPEN` for each assembled LOCKED block.
 
 If integration falsifies a lock:
 
@@ -501,6 +597,8 @@ FINDING
 → operator re-LOCK
 → reassemble affected path
 ```
+
+P11 exits only when all retained assembled LOCKED blocks pass fidelity verification and the material cross-block journeys are coherent.
 
 ## 18. P12 — Adversarial UX + architecture walkthrough
 
@@ -531,6 +629,7 @@ material controls bound
 navigation identities sourced
 patterns reconciled
 P11 complete
+all retained P11 blocks PASS FIDELITY or were explicitly reopened
 negative/material states represented
 failure message intent defined
 frontend ↔ backend trace complete
@@ -553,18 +652,20 @@ user goals
 authority pack
 dependencies
 assumptions
+lock-time material-assumption dispositions
 reference evidence when triggered
 hypotheses when ambiguity is real
 data/backend feasibility disposition
 Global-Maximum check
 canonical functional P8 HTML
 material interactions
-operator walkthrough
+operator walkthrough evidence
 Findings
 LOCK/CANDIDATE disposition
+LOCK impact disposition after a material upstream rebaseline when applicable
 P9 Screen Contract
 P10 pattern pass
-P11 integration path
+P11 integration path + fidelity result when applicable
 ```
 
 The method does not require one file per artifact.
@@ -605,6 +706,9 @@ all-at-once generation
 screen-shaped API
 backend-shaped UX
 frontend authority duplication
+stale LOCK after material upstream change
+hidden structural assumption debt at LOCK
+P11 assembled-fidelity drift
 YAGNI / overengineering
 untracked assumptions
 accessibility/responsive deferral
