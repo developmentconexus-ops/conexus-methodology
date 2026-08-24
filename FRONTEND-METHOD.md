@@ -231,7 +231,7 @@ REFERENCE EVIDENCE
 ASSUMPTIONS
 ```
 
-Material assumptions remain explicit until validated, rejected, deferred, or escalated as a Finding. P8 owns explicit lock-time disposition for any still-OPEN assumption materially depended upon by the block; P14 still requires material OPEN assumptions = 0.
+Material assumptions remain explicit until validated, rejected, deferred, or escalated as a Finding. P8 owns lock-time disposition for any still-OPEN assumption the block materially depends upon.
 
 Statuses:
 
@@ -292,8 +292,8 @@ Each plausibly affected LOCKED block receives exactly one disposition:
 
 ```text
 UNAFFECTED
-  changed authority does not alter a protected user need, structural invariant,
-  material state/action/context, Screen Contract, or dependency of the block
+  changed authority does not alter the block's protected structure,
+  Screen Contract, or dependency
 
 REVALIDATE
   protected structure is expected to remain valid but must be explicitly
@@ -355,7 +355,7 @@ so that <outcome>.
 
 Capture frequency/urgency, decision information, friction, and handoffs. Goals must remain independent from proposed components/pages.
 
-Accepted Product/domain authority may seed candidate human jobs, but authority-derived jobs are planning hypotheses about human operation until supported by proportionate Evidence such as operator/domain experience, real workflow/task traces, support/process evidence, observed user evidence, or relevant reference/domain evidence. Unsupported frequency, urgency, terminology, device/environment, and workflow assumptions remain explicit assumptions.
+Accepted Product/domain authority may seed candidate human jobs, but authority-derived jobs are hypotheses about human operation until supported by proportionate user/operator, workflow/process, or reference/domain Evidence. Unsupported material human-operation details remain explicit assumptions.
 
 Formal user research is not a prerequisite for every frontend program; use the strongest Evidence proportional to the uncertainty and materiality.
 
@@ -500,12 +500,9 @@ ACCEPT_FOR_LOCK_WITH_LATER_PROBE
 
 BLOCK_LOCK
   uncertainty is too material; LOCK cannot occur yet
-
-NOT_MATERIAL_TO_STRUCTURE
-  assumption may remain open but does not support the block's protected structure
 ```
 
-Only the operator may select `ACCEPT_FOR_LOCK_WITH_LATER_PROBE`. Do not enumerate unrelated assumptions merely to satisfy a template. P14 still requires material OPEN assumptions = 0.
+Only the operator may select `ACCEPT_FOR_LOCK_WITH_LATER_PROBE`. Do not enumerate unrelated assumptions merely to satisfy a template.
 
 ### Operator walkthrough evidence
 
@@ -518,7 +515,7 @@ material issues found
 final disposition: LOCK | REVISE | UPSTREAM FINDING
 ```
 
-When relevant, probe whether current Organization/context was understandable, consequential-action expectations were clear, unknown/empty/unavailable/stale/denied states were intelligible, architecture gaps or backend-shaped UI leaked into the experience, and responsive behavior preserved meaning. Do not turn these prompts into a mandatory questionnaire for trivial blocks.
+When relevant, use §2's success questions to probe context, consequential actions, material states, architecture gaps, and responsive meaning. Do not turn them into a mandatory questionnaire for trivial blocks.
 
 Exit:
 
@@ -598,7 +595,7 @@ FINDING
 → reassemble affected path
 ```
 
-P11 exits only when all retained assembled LOCKED blocks pass fidelity verification and the material cross-block journeys are coherent.
+P11 exits only when all retained assembled LOCKED blocks pass fidelity verification.
 
 ## 18. P12 — Adversarial UX + architecture walkthrough
 
@@ -629,7 +626,6 @@ material controls bound
 navigation identities sourced
 patterns reconciled
 P11 complete
-all retained P11 blocks PASS FIDELITY or were explicitly reopened
 negative/material states represented
 failure message intent defined
 frontend ↔ backend trace complete
