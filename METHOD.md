@@ -1,7 +1,6 @@
 # DevelopmentConexus Engineering Method
 
 **Version:** 1.1.0  
-**Status:** CANDIDATE FOR ORGANIZATIONAL RATIFICATION  
 **Authority:** organizational engineering reasoning standard  
 **Scope:** all DevelopmentConexus repositories; human, agent, or hybrid engineering
 
