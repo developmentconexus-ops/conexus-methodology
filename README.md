@@ -4,9 +4,9 @@ Canonical home of the DevelopmentConexus cross-repository engineering methods.
 
 ## Current suite status
 
-**PR #2 OPERATOR-RATIFIED / NOT YET INTEGRATED / NOT YET ORGANIZATIONAL AUTHORITY.**
+**ACCEPTED / ORGANIZATIONAL AUTHORITY.**
 
-Independent adversarial review R1–R3 is converged and the operator ratified this candidate on 2026-08-24. `main` remains the accepted organizational authority until this candidate is integrated.
+Independent adversarial review R1–R3 converged, operator ratification completed on 2026-08-24, and PR #2 was squash-merged into `main`. The integrated suite on `main` is the current organizational authority. Consumers pin the exact accepted methodology commit they adopt; they never auto-follow moving `main`.
 
 ## Start with the router
 
