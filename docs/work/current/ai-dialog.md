@@ -10,12 +10,12 @@ Scope: ONLY the amendment range `26d5c4d5c39b3de3c95c5b7bd71d7060cd413316..56247
 
 | ID | Severity | Subject | Status |
 |---|---|---|---|
-| R3-F1 | IMPORTANT | Duplicated normative statements reintroduced by the amendment (rule-once violations) | OPEN — bounded deletion proposed |
-| R3-F2 | IMPORTANT | `NOT_MATERIAL_TO_STRUCTURE` is unreachable under its own scope sentence | OPEN — bounded reword proposed |
-| R3-F3 | MINOR | METHOD.md promotion-review rubric restates the §3 decision core | OPEN — compression proposed |
-| R3-F4 | MINOR | Compressible definition/list prose in the FRONTEND additions | OPEN — compression proposed |
+| R3-F1 | IMPORTANT | Duplicated normative statements reintroduced by the amendment (rule-once violations) | CLOSED — ACCEPT / deleted |
+| R3-F2 | IMPORTANT | `NOT_MATERIAL_TO_STRUCTURE` is unreachable under its own scope sentence | CLOSED — ACCEPT / deleted unreachable branch |
+| R3-F3 | MINOR | METHOD.md promotion-review rubric restates the §3 decision core | CLOSED — ACCEPT / compressed |
+| R3-F4 | MINOR | Compressible definition/list prose in the FRONTEND additions | CLOSED — ACCEPT / compressed |
 
-No MATERIAL finding. Nothing in this round falsifies the amendment's central mechanisms; the two IMPORTANT findings are bounded internal-consistency defects in the added text, not defects of the protected behavior.
+No MATERIAL finding. Nothing in this round falsifies the amendment's central mechanisms; the two IMPORTANT findings were bounded internal-consistency defects in the added text, not defects of the protected behavior.
 
 ## Dialogue
 
@@ -92,3 +92,55 @@ The amendment leaves intact, and this round re-verified at HEAD: the phase chain
 The amendment is behaviorally sound: all seven protected mechanisms are confirmed against both the repository's own laws and current external instruction-design evidence, and no MATERIAL finding exists. It is not yet textually converged: two IMPORTANT internal-consistency defects (three duplicated normative statements; one unreachable disposition) and two MINOR compressions keep it above the smallest high-signal form the kernel itself mandates. All proposed corrections are deletions or single-sentence rewords on the amendment's own text — no redesign, no new machinery, no reopening of settled R1/R2 areas.
 
 **LEAD RESPONSE REQUIRED** — adjudicate R3-F1 and R3-F2 (bounded edits on the candidate branch), disposition R3-F3/R3-F4 (accept, defer, or reject as polish), then this round can converge on the corrected HEAD without a further Challenger turn unless material uncertainty survives.
+
+### R3-L1 — LEAD
+
+Adjudication against corrected candidate `c2944492091990ec047bf5ac35546bf758618826`:
+
+- **R3-F1 — ACCEPT / CLOSED.** Removed the repeated P14 assumption clause from §4/P8 and removed the P11-fidelity restatement from P14. P14 now owns only its implementation-readiness checklist; P8/P11 own their respective exit laws.
+- **R3-F2 — ACCEPT / CLOSED.** Kept the strict scope (only assumptions materially depended upon by the block enter the lock-time record) and deleted `NOT_MATERIAL_TO_STRUCTURE`. Non-structural assumptions remain in the normal assumption ledger rather than entering a vacuous disposition branch.
+- **R3-F3 — ACCEPT / CLOSED.** Compressed consumer→METHOD feedback to the new signal only: cross-repository safeguards surface centrally, one real material consumer may suffice, local specialization remains local until disposition, canonical method updates before normal consumer pin-move/rebaseline.
+- **R3-F4 — ACCEPT / CLOSED.** Compressed `UNAFFECTED`, P1 evidence examples, walkthrough probes (now reusing §2), and the P11 exit clause without deleting any firing mechanism.
+
+Fresh verification:
+
+```text
+562473ed..c2944492
+= 2 commits
+= METHOD.md + FRONTEND-METHOD.md only
+FRONTEND correction = +7 / -11
+METHOD correction   = +1 / -3
+net correction      = -6 lines
+```
+
+At corrected HEAD:
+
+```text
+NOT_MATERIAL_TO_STRUCTURE = absent
+"P14 still requires"      = absent
+P14 P11-fidelity restate   = absent
+P8 lock-time record        = present
+LOCK impact tri-state      = present
+P11 PASS FIDELITY/REOPEN   = present
+small-delta anti-abuse law = present
+formal user research gate  = explicitly rejected
+new machinery              = none
+CodeRabbit                  = success
+```
+
+Core sequencing remains:
+
+```text
+P7
+→ P8 browser-operable functional HTML + operator LOCK
+→ P9 exact Screen Contract
+→ P10 repeated-LOCK pattern consolidation
+→ P11 assembled prototype + fidelity
+→ P12 whole-product adversarial backstop
+```
+
+No screen-shaped backend, no backend-shaped UX, Global Maximum before YAGNI, smallest-owner reopen and operator-only LOCK remain unchanged.
+
+All R3 corrections are the bounded deletions/compressions requested by the Challenger. No material uncertainty survives and no additional mechanism or scope was introduced.
+
+**R3 CONVERGED — no MATERIAL or IMPORTANT finding remains open.**
