@@ -21,7 +21,7 @@ This is a **reasoning method, not a process framework**.
 - A change to this method is itself a material decision: apply the current accepted Method, assess affected consumers, record the amendment, and require operator ratification.
 - Summaries, prompt snippets, templates, local copies, and tool-specific projections are derived aids unless explicitly designated canonical. They MUST cite the canonical version and MUST NOT become a second authority.
 
-Current organizational specialist authorities may include the Repository Standard, Frontend Product Experience Method, and Evidence-Grounded Realization Method. They compose with this Method; they do not become alternative reasoning kernels.
+Current organizational specialist authorities may include the Repository Standard, Frontend Product Experience Method, Evidence-Grounded Realization Method, and Independent Adversarial Review Method. They compose with this Method; they do not become alternative reasoning kernels.
 
 Reopen this method only when Evidence shows a core rule is systematically misclassifying work, creating ceremony without decision-quality gain, forcing repository bindings to violate the method, or failing for a materially new actor/work class.
 
@@ -181,6 +181,8 @@ Artifact existence is not proof. **A control that cannot be shown to fire is not
 Attack the preferred decision: strongest counterargument, invalidating assumption, duplicate authority, framework/provider overfit, partial failure, concurrency, restart, migration trap, hardest future change.
 
 Self-review is not independent review. Before ratification, use an independent/fresh challenger when a decision creates or moves authority/trust boundaries, has external/irreversible effects, or binds multiple repositories. A repository may require independent challenge more often, not less than this floor.
+
+When independent review runs, use the pinned `ADVERSARIAL-REVIEW-METHOD.md`; load other specialist methods only when the claim under review requires them.
 
 A reviewer Finding or severity is Evidence, not requirement authority. First classify it against current authority. A defect against existing authority may be corrected; a proposal that creates new authority/requirement must return to decision, never enter disguised as a correction.
 
