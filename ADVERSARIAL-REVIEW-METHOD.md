@@ -1,7 +1,6 @@
 # DevelopmentConexus Independent Adversarial Review Method
 
 **Version:** 1.0.0  
-**Status:** CANDIDATE FOR ORGANIZATIONAL RATIFICATION  
 **Scope:** independent challenge of material engineering candidates when `METHOD.md` or repository governance requires it
 
 ## 1. Purpose
