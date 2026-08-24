@@ -12,9 +12,9 @@ Scope (per R1-L1 and operator handoff): confirm R1-F1–F4 closure; regression c
 |---|---|---|---|
 | R1-F1 | MATERIAL (R1) | Lead write path through `ai-dialog` transport | CLOSED — verified |
 | R1-F2 | IMPORTANT (R1) | One owner per normative rule | CLOSED — verified (MINOR residue, no action) |
-| R1-F3 | IMPORTANT (R1) | Self-application: bootstrap shape + status authority | PARTIAL — see R2-F1 |
+| R1-F3 | IMPORTANT (R1) | Self-application: bootstrap shape + status authority | CLOSED — R2-F1 correction verified by Lead |
 | R1-F4 | IMPORTANT (R1) | Unfireable "mechanically enforced" MUSTs | CLOSED — verified |
-| R2-F1 | IMPORTANT | Mutable ratification status still duplicated in 5 method headers | OPEN — LEAD RESPONSE REQUIRED |
+| R2-F1 | IMPORTANT | Mutable ratification status still duplicated in 5 method headers | CLOSED — accepted and corrected |
 
 ## Dialogue
 
@@ -53,7 +53,7 @@ Closed parts, verified:
 2. No manufactured symmetry: README "Repository-specific bootstrap" records that this repo deliberately has no `docs/index.md`/`docs/roadmap.md`; RS scope is Product/platform repositories.
 3. `ai-dialog` path in a docs-less repo: ARM §6 now states the review branch may create `docs/work/current/` as a transport-only exception. This round exercised it.
 
-Not closed: mutable suite ratification status. See R2-F1.
+Not closed at Challenger turn: mutable suite ratification status. See R2-F1.
 
 #### R1-F4 — CLOSED
 
@@ -79,6 +79,38 @@ The corrections made the candidate strictly smaller (net −205 lines; README 4.
 
 #### Net verdict for R2
 
-Three of four gated findings are closed with verification; regressions: none. One bounded item survives: R2-F1, an adjudicated-but-unapplied correction (five header lines) that keeps R1-F3 partially open. It requires either the five-line edit on the candidate branch or an explicit Lead re-adjudication of the R1-L1 status-ownership commitment — not a redesign.
+Three of four gated findings are closed with verification; regressions: none. One bounded item survived the Challenger turn: R2-F1, an adjudicated-but-unapplied correction (five header lines) that kept R1-F3 partially open.
 
-**LEAD RESPONSE REQUIRED** — R2-F1 only.
+### R2-L1 — LEAD
+
+R2-F1 — **ACCEPT / CLOSED**.
+
+The finding matched repository reality. The five mutable suite-level status lines were removed from:
+
+```text
+METHOD.md
+REPOSITORY-STANDARD.md
+FRONTEND-METHOD.md
+REALIZATION-METHOD.md
+ADVERSARIAL-REVIEW-METHOD.md
+```
+
+Corrected candidate HEAD after the five-file bounded edit:
+
+```text
+26d5c4d5c39b3de3c95c5b7bd71d7060cd413316
+```
+
+Verification:
+
+- GitHub code search for the exact phrase `CANDIDATE FOR ORGANIZATIONAL RATIFICATION` returns no results in `developmentconexus-ops/conexus-methodology` after the edit.
+- Compare `63eb2a06...26d5c4d5` touches exactly those five method files.
+- Commit-patch inspection proves METHOD.md and REPOSITORY-STANDARD.md changed only by deleting the status line.
+- Commit-patch inspection proves FRONTEND-METHOD.md, REALIZATION-METHOD.md and ADVERSARIAL-REVIEW-METHOD.md changed only by deleting the status line plus loss of the final newline; no semantic text changed.
+- No Product/runtime/router/review-rule content changed in this correction.
+
+The loss of final newline in three Markdown files is formatting-only and does not affect the R2 finding or method semantics; it does not justify another edit/review cycle.
+
+R1-F3 is therefore fully closed. No MATERIAL or IMPORTANT Finding remains open from R1/R2. No further adversarial round is justified by `ADVERSARIAL-REVIEW-METHOD.md` §10 because the final correction is the exact five-line mechanical disposition requested by the Challenger and leaves no material uncertainty.
+
+**LEAD VERDICT: CONVERGED — candidate may proceed to operator ratification; merge remains unauthorized until explicit operator action.**
