@@ -1,7 +1,6 @@
 # DevelopmentConexus Repository Standard
 
 **Version:** 1.1.0  
-**Status:** CANDIDATE FOR ORGANIZATIONAL RATIFICATION  
 **Scope:** active DevelopmentConexus Product and platform repositories
 
 ## 1. Purpose
