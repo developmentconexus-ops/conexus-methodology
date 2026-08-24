@@ -2,44 +2,45 @@
 
 ## Start here
 
-Before editing, revalidate repository/branch/HEAD and any open methodology PR. Current repository authority beats chat or an old handoff.
+Before editing, revalidate repository, branch/HEAD and any active methodology PR. Current repository authority beats chat or an old handoff.
 
-Read only what the task requires:
+Read in this order:
 
-1. [`METHOD.md`](METHOD.md) — reasoning kernel for every material engineering decision.
-2. [`REPOSITORY-STANDARD.md`](REPOSITORY-STANDARD.md) — when repository organization, continuity, documentation, Git/PR, review, or methodology consumption is in scope.
-3. [`FRONTEND-METHOD.md`](FRONTEND-METHOD.md) — when human-facing Product experience/frontend planning is in scope.
-4. [`REALIZATION-METHOD.md`](REALIZATION-METHOD.md) — when technology research, dependency/version choice, production implementation, integration, or proof is in scope.
-5. [`README.md`](README.md) — authority/composition map and canonical Fable review workflow.
+```text
+AGENTS.md
+→ ROUTER.md
+→ only the Method(s) selected for the current task
+```
 
-Do not load all specialist methods by default merely because they exist.
+Do **not** load the whole suite by default.
 
-## Authority rules
+## Authority
 
-- `METHOD.md` is the sole organizational engineering reasoning kernel.
-- `REPOSITORY-STANDARD.md` is the organizational repository operating authority.
-- `FRONTEND-METHOD.md` specializes the Method for Product experience/frontend planning.
-- `REALIZATION-METHOD.md` specializes the Method for production realization.
-- Specialist methods MUST return material upstream contradictions to `METHOD.md`; they may not silently redefine Product/architecture authority.
-- Product architecture, repository status, stage/block names, exact technology, verification commands, and repo-specific safety rails remain local to consuming repositories.
-- Local copies, generated projections, submodules, summaries, and prompt snippets are delivery aids only unless explicitly designated canonical. Consumers pin the exact methodology commit; normative auto-follow of `main` is prohibited.
+- `METHOD.md` — reasoning kernel for material engineering decisions.
+- `REPOSITORY-STANDARD.md` — repository operation, continuity, Git/PR, context and methodology consumption.
+- `FRONTEND-METHOD.md` — specialist for human-facing Product experience/frontend planning.
+- `REALIZATION-METHOD.md` — specialist for technology/dependency/production realization.
+- `ADVERSARIAL-REVIEW-METHOD.md` — specialist for independent challenge.
+- `ROUTER.md` — routing only; it owns no engineering/Product decision.
+
+Product architecture, repository status, stage/block names, exact technology and local safety rails remain owned by consuming repositories.
+
+Local copies/submodules/projections are delivery aids only. Consumers pin the exact methodology commit; normative auto-follow of `main` is prohibited.
+
+## Current operating deployment
+
+The methods are tool-neutral. Current DevelopmentConexus use is:
+
+```text
+Lead        = ChatGPT
+Challenger  = Claude Code
+Operator    = human operator
+```
+
+Do not encode model-specific behavior into Product authority.
 
 ## Editing rule
 
-A change to any organizational authority here is a material cross-repository decision.
+A change to an organizational Method/Standard is material cross-repository work. Apply the currently accepted Method, inspect affected consumers, challenge material candidates independently when required, and require explicit operator ratification before they become organizational authority.
 
-Apply the current accepted Method, inspect affected consumers/local lineages, challenge the candidate independently when required, and require explicit operator ratification before it becomes organizational authority.
-
-Keep authorities LLM-first: maximum decision signal per token, one owner per rule, no duplicated tutorial prose, repository-specific fact, template ceremony, or synchronization machinery without demonstrated value.
-
-## Repository boundary
-
-This repository owns only:
-
-- organizational engineering reasoning;
-- organizational repository operation/continuity;
-- reusable frontend Product-experience planning;
-- reusable evidence-grounded realization engineering;
-- the small canonical Fable review convention and method-composition map in `README.md`.
-
-Do not add Product-specific technology decisions, stage roadmaps, prompt libraries, template packs, CI/distribution frameworks, or automatic cross-repository sync until a demonstrated failure class and real consumer justify them.
+Keep this repository small and LLM-first. Do not add Product-specific decisions, stage roadmaps, prompt/template libraries, agent frameworks, sync bots or CI/distribution machinery without a demonstrated failure class and real consumer.
